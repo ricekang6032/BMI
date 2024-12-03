@@ -12,22 +12,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RandomNumber"
         tools:targetApi="31">
+
+        <!-- LoginActivity 設定為啟動頁面 -->
         <activity
-            android:name=".BMIActivity"
-            android:exported="true" >
+            android:name=".LoginActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- BMIActivity 保留，但不再作為啟動頁面 -->
         <activity
-            android:name=".LoginActivity"
+            android:name=".BMIActivity"
             android:exported="false" />
+
+        <!-- MainActivity 作為後續跳轉頁面 -->
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
     </application>
 
 </manifest>

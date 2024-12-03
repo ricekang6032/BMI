@@ -6,7 +6,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerView_Adapter(private val dataList: List<RecyclerView_Data>): RecyclerView.Adapter<RecyclerView_Adapter.mViewHolder>(){
+class RecyclerView_Adapter(private val dataList: MutableList<RecyclerView_Data>)
+    : RecyclerView.Adapter<RecyclerView_Adapter.mViewHolder>() {
 
     // ViewHolder 必須是 inner class
     inner class mViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -25,11 +26,14 @@ class RecyclerView_Adapter(private val dataList: List<RecyclerView_Data>): Recyc
     override fun onBindViewHolder(holder: mViewHolder, position: Int) {
         holder.apply {
             detail.text = dataList[position].bmi
-            idTextView.text = "${dataList[position].id} BMI紀錄："
+            idTextView.text = " BMI紀錄："
         }
     }
 
     override fun getItemCount(): Int {
         return dataList.size
     }
+
 }
+
+

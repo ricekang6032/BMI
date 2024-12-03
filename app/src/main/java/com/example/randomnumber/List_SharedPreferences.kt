@@ -25,6 +25,15 @@ class List_SharedPreferences (context: Context) {
         editor.apply()
     }
 
+    fun saveAllData(data: List<RecyclerView_Data>) {
+        val editor = prefs.edit()
+        val gson = Gson()
+        // 將完整列表轉換成 JSON 並保存
+        editor.putString("records", gson.toJson(data))
+        editor.apply()
+    }
+
+
     fun loadData(): List<RecyclerView_Data>{
         val gson = Gson()
         val type = object : TypeToken<List<RecyclerView_Data>>() {}.type
